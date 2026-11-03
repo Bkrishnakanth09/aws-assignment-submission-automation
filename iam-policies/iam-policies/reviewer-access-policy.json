@@ -1,0 +1,29 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowListAssignmentBucket",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": "arn:aws:s3:::aideas-assignment-drop-kk2026",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": [
+            "incoming/",
+            "incoming/*"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "AllowReadAssignments",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::aideas-assignment-drop-kk2026/incoming/*"
+    }
+  ]
+}
